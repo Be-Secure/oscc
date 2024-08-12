@@ -75,6 +75,7 @@ jobs:
         cd arduino-1.8.5
         sudo mkdir -p /usr/share/arduino
         sudo cp -R * /usr/share/arduino
+        cd
         cd firmware
         mkdir build
         cd build
