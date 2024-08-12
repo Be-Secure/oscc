@@ -66,8 +66,7 @@ jobs:
     # to build your code.
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
-    - if: matrix.build-mode == 'manual'
-      shell: bash
+    - name: Dependencies installation
       run: |
         sudo apt install build-essential cmake
         wget https://downloads.arduino.cc/arduino-1.8.5-linux64.tar.xz -O arduino-1.8.5.tar.xz
@@ -75,7 +74,10 @@ jobs:
         cd arduino-1.8.5
         sudo mkdir -p /usr/share/arduino
         sudo cp -R * /usr/share/arduino
-        cd
+    
+    - if: matrix.build-mode == 'manual'
+      shell: bash
+      run: |
         cd firmware
         mkdir build
         cd build
