@@ -75,6 +75,10 @@ jobs:
         cd arduino-1.8.5
         sudo mkdir -p /usr/share/arduino
         sudo cp -R * /usr/share/arduino
+        cd firmware
+        mkdir build
+        cd build
+        make
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
