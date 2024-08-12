@@ -81,6 +81,7 @@ jobs:
         cd firmware
         mkdir build
         cd build
+        cmake .. -DVEHICLE=kia_soul
         make
 
     - name: Perform CodeQL Analysis
